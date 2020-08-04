@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+
+<body>
+
+	<h2>
+		<th:block th:if="${type['new']}">New </th:block>
+		Pet Type
+	</h2>
+
+	<form th:object="${type}" class="form-horizontal" method="post">
+		<input type="hidden" name="id" th:value="*{id}" />
+		<div class="form-group has-feedback">
+			<input
+				th:replace="~{inputField :: input ('Name', 'name', 'text')}" />
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button
+					th:with="text=${type['new']} ? 'Add Pet Type' : 'Update Pet Type'"
+					class="btn btn-default" type="submit" th:text="${text}">Add
+					Pet Type</button>
+			</div>
+		</div>
+	</form>
+	<a th:href="@{/pettypes}"
+		class="btn btn-default">List All Pet Types</a>
+</body>
+
+</html>

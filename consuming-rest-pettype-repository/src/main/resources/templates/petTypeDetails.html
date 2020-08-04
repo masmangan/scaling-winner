@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org" >
+
+<body>
+
+	<h2>Pet Type</h2>
+
+	<table class="table table-striped" th:object="${type}">
+		<tr>
+			<th>Name</th>
+			<td><b th:text="*{name}"></b></td>
+		</tr>
+	</table>
+
+	<a th:href="@{/pettypes/{id}/edit(id=${type.id})}"
+		class="btn btn-default">Edit Pet Type</a>
+	<a th:href="@{/pettypes}"
+		class="btn btn-default">List All Pet Types</a>
+</body>
+
+</html>
